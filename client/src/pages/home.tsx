@@ -23,10 +23,10 @@ export default function Home() {
   });
 
   const stats = [
-    { label: "Active Traders", value: "10K+", icon: Users },
-    { label: "Cards Available", value: "50K+", icon: TrendingUp },
-    { label: "Trades Completed", value: "25K+", icon: Shield },
-    { label: "Satisfaction Rate", value: "99.9%", icon: Star },
+    { label: "Jogadores Ativos", value: "10K+", icon: Users },
+    { label: "Cartas Disponíveis", value: "50K+", icon: TrendingUp },
+    { label: "Trocas Realizadas", value: "25K+", icon: Shield },
+    { label: "Taxa de Satisfação", value: "99.9%", icon: Star },
   ];
 
   return (
@@ -41,18 +41,18 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-slate-100 leading-tight mb-6">
-                Trade Your Cards
-                <span className="text-primary block">Seamlessly</span>
+                Troque suas Cartas
+                <span className="text-primary block">Com Facilidade</span>
               </h1>
               <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
-                Join the premier marketplace for trading cards. Connect with collectors worldwide, 
-                discover rare cards, and make perfect trades with our secure platform.
+                Junte-se ao principal marketplace de cartas colecionáveis. Conecte-se com colecionadores do mundo todo, 
+                descubra cartas raras e faça trocas perfeitas em nossa plataforma segura.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 {isAuthenticated ? (
                   <Button asChild size="lg" className="text-lg">
                     <Link href="/dashboard">
-                      Go to Dashboard
+                      Ir para Dashboard
                       <ArrowRight className="ml-2" size={20} />
                     </Link>
                   </Button>
@@ -62,12 +62,12 @@ export default function Home() {
                     className="text-lg"
                     onClick={() => setShowRegisterModal(true)}
                   >
-                    Start Trading Now
+                    Começar a Trocar Agora
                     <ArrowRight className="ml-2" size={20} />
                   </Button>
                 )}
                 <Button variant="outline" size="lg" className="text-lg" asChild>
-                  <Link href="/marketplace">View Marketplace</Link>
+                  <Link href="/marketplace">Ver Marketplace</Link>
                 </Button>
               </div>
             </motion.div>
@@ -166,10 +166,10 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4"
             >
-              Active Trade Requests
+              Propostas de Troca Ativas
             </motion.h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              Browse through current trade requests from collectors around the world
+              Navegue pelas propostas de troca atuais de colecionadores do mundo todo
             </p>
           </div>
 
@@ -190,7 +190,7 @@ export default function Home() {
           <div className="text-center">
             <Button asChild variant="outline" size="lg">
               <Link href="/marketplace">
-                View All Trades
+                Ver Todas as Trocas
                 <ArrowRight className="ml-2" size={20} />
               </Link>
             </Button>

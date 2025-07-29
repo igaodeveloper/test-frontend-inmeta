@@ -61,15 +61,15 @@ export function CreateTradeModal({ isOpen, onClose }: CreateTradeModalProps) {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/trades"] });
       toast({
-        title: "Trade created!",
-        description: "Your trade request has been posted successfully.",
+        title: "Troca criada!",
+        description: "Sua proposta de troca foi publicada com sucesso.",
       });
       onClose();
       handleReset();
     },
     onError: (error: Error) => {
       toast({
-        title: "Failed to create trade",
+        title: "Falha ao criar troca",
         description: error.message,
         variant: "destructive",
       });
@@ -117,10 +117,10 @@ export function CreateTradeModal({ isOpen, onClose }: CreateTradeModalProps) {
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-center text-2xl font-bold text-slate-900 dark:text-slate-100">
-            Create New Trade
+            Criar Nova Troca
           </DialogTitle>
           <DialogDescription className="text-center text-slate-600 dark:text-slate-400">
-            Select cards to offer and cards you want to receive
+            Selecione cartas para oferecer e cartas que deseja receber
           </DialogDescription>
         </DialogHeader>
 
@@ -130,7 +130,7 @@ export function CreateTradeModal({ isOpen, onClose }: CreateTradeModalProps) {
             <div>
               <h3 className="font-semibold text-lg text-slate-900 dark:text-slate-100 mb-4 flex items-center">
                 <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                Cards I'm Offering ({selectedOffering.length})
+                Cartas que Ofereço ({selectedOffering.length})
               </h3>
               
               <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-4 mb-4 min-h-[200px]">
@@ -157,14 +157,14 @@ export function CreateTradeModal({ isOpen, onClose }: CreateTradeModalProps) {
                 ) : (
                   <div className="text-center text-slate-500 dark:text-slate-400 py-8">
                     <Plus className="mx-auto mb-2" size={32} />
-                    <p>Select cards from your collection</p>
+                    <p>Selecione cartas da sua coleção</p>
                   </div>
                 )}
               </div>
               
               <div className="space-y-2 max-h-64 overflow-y-auto">
                 <h4 className="font-medium text-slate-700 dark:text-slate-300 mb-2">
-                  My Cards
+                  Minhas Cartas
                 </h4>
                 {loadingUserCards ? (
                   <div className="grid grid-cols-2 gap-2">
@@ -191,7 +191,7 @@ export function CreateTradeModal({ isOpen, onClose }: CreateTradeModalProps) {
             <div>
               <h3 className="font-semibold text-lg text-slate-900 dark:text-slate-100 mb-4 flex items-center">
                 <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                Cards I Want ({selectedReceiving.length})
+                Cartas que Desejo ({selectedReceiving.length})
               </h3>
               
               <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-4 mb-4 min-h-[200px]">
@@ -218,17 +218,17 @@ export function CreateTradeModal({ isOpen, onClose }: CreateTradeModalProps) {
                 ) : (
                   <div className="text-center text-slate-500 dark:text-slate-400 py-8">
                     <Search className="mx-auto mb-2" size={32} />
-                    <p>Search and select cards you want</p>
+                    <p>Busque e selecione cartas que deseja</p>
                   </div>
                 )}
               </div>
               
               <div className="mb-4">
-                <Label htmlFor="search">Search Cards</Label>
+                <Label htmlFor="search">Buscar Cartas</Label>
                 <Input
                   id="search"
                   type="text"
-                  placeholder="Search for cards..."
+                  placeholder="Buscar cartas..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="mt-2"
@@ -277,13 +277,13 @@ export function CreateTradeModal({ isOpen, onClose }: CreateTradeModalProps) {
 
           <div className="flex justify-end space-x-4 mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
             <Button type="button" variant="outline" onClick={handleClose}>
-              Cancel
+              Cancelar
             </Button>
             <Button 
               type="submit" 
               disabled={createTradeMutation.isPending || selectedOffering.length === 0 || selectedReceiving.length === 0}
             >
-              {createTradeMutation.isPending ? "Creating..." : "Create Trade"}
+              {createTradeMutation.isPending ? "Criando..." : "Criar Troca"}
             </Button>
           </div>
         </form>

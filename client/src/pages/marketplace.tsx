@@ -18,11 +18,11 @@ export default function Marketplace() {
   });
 
   const categories = [
-    { id: "all", label: "All Categories" },
+    { id: "all", label: "Todas as Categorias" },
     { id: "pokemon", label: "Pokemon" },
     { id: "magic", label: "Magic" },
     { id: "yugioh", label: "Yu-Gi-Oh" },
-    { id: "sports", label: "Sports" },
+    { id: "sports", label: "Esportes" },
   ];
 
   const filteredTrades = trades?.filter(trade => {
@@ -57,7 +57,7 @@ export default function Marketplace() {
             Marketplace
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Discover and explore trade opportunities from collectors worldwide
+            Descubra e explore oportunidades de troca com colecionadores do mundo todo
           </p>
         </motion.div>
 
@@ -67,7 +67,7 @@ export default function Marketplace() {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
             <Input
               type="text"
-              placeholder="Search trades, cards, or users..."
+              placeholder="Buscar trocas, cartas ou usuários..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10"
@@ -92,11 +92,11 @@ export default function Marketplace() {
         <div className="mb-6">
           <div className="flex items-center justify-between">
             <p className="text-slate-600 dark:text-slate-400">
-              {filteredTrades ? `${filteredTrades.length} trades found` : "Loading..."}
+              {filteredTrades ? `${filteredTrades.length} trocas encontradas` : "Carregando..."}
             </p>
             <Button variant="outline" size="sm">
               <Filter className="mr-2" size={16} />
-              More Filters
+              Mais Filtros
             </Button>
           </div>
         </div>
@@ -135,8 +135,8 @@ export default function Marketplace() {
           >
             <div className="text-slate-400 dark:text-slate-500 mb-4">
               <Search size={64} className="mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">No trades found</h3>
-              <p>Try adjusting your search criteria or check back later for new trades.</p>
+              <h3 className="text-xl font-semibold mb-2">Nenhuma troca encontrada</h3>
+              <p>Tente ajustar seus critérios de busca ou volte mais tarde para novas trocas.</p>
             </div>
           </motion.div>
         )}

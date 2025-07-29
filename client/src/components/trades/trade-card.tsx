@@ -31,10 +31,10 @@ export function TradeCard({ trade, onViewDetails }: TradeCardProps) {
           </Avatar>
           <div>
             <div className="font-semibold text-slate-900 dark:text-slate-100">
-              {trade.user?.name || "Unknown User"}
+              {trade.user?.name || "Usuário Desconhecido"}
             </div>
             <div className="text-sm text-slate-500 dark:text-slate-400">
-              {trade.createdAt ? new Date(trade.createdAt).toLocaleDateString() : "Recently"}
+              {trade.createdAt ? new Date(trade.createdAt).toLocaleDateString() : "Recentemente"}
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@ export function TradeCard({ trade, onViewDetails }: TradeCardProps) {
           <div>
             <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2 flex items-center">
               <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-              Offering
+              Oferecendo
             </h4>
             <div className="grid grid-cols-2 gap-2">
               {offeringCards.slice(0, 2).map((tradeCard) => (
@@ -61,7 +61,7 @@ export function TradeCard({ trade, onViewDetails }: TradeCardProps) {
               ))}
               {offeringCards.length > 2 && (
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-2 flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs">
-                  +{offeringCards.length - 2} more
+                  +{offeringCards.length - 2} mais
                 </div>
               )}
             </div>
@@ -78,7 +78,7 @@ export function TradeCard({ trade, onViewDetails }: TradeCardProps) {
           <div>
             <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2 flex items-center">
               <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-              Requesting
+              Procurando
             </h4>
             <div className="grid grid-cols-2 gap-2">
               {receivingCards.slice(0, 2).map((tradeCard) => (
@@ -94,7 +94,7 @@ export function TradeCard({ trade, onViewDetails }: TradeCardProps) {
               ))}
               {receivingCards.length > 2 && (
                 <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-2 flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs">
-                  +{receivingCards.length - 2} more
+                  +{receivingCards.length - 2} mais
                 </div>
               )}
             </div>
@@ -108,7 +108,7 @@ export function TradeCard({ trade, onViewDetails }: TradeCardProps) {
           variant="default"
         >
           <Eye className="mr-2" size={16} />
-          View Trade Details
+          Ver Detalhes da Troca
         </Button>
       </div>
     </motion.div>

@@ -42,13 +42,13 @@ export default function Dashboard() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/trades"] });
       toast({
-        title: "Trade deleted",
-        description: "Your trade request has been removed.",
+        title: "Troca excluída",
+        description: "Sua proposta de troca foi removida.",
       });
     },
     onError: (error: Error) => {
       toast({
-        title: "Failed to delete trade",
+        title: "Falha ao excluir troca",
         description: error.message,
         variant: "destructive",
       });
@@ -56,35 +56,35 @@ export default function Dashboard() {
   });
 
   const handleDeleteTrade = (tradeId: string) => {
-    if (window.confirm("Are you sure you want to delete this trade?")) {
+    if (window.confirm("Tem certeza que deseja excluir esta troca?")) {
       deleteTradeMutation.mutate(tradeId);
     }
   };
 
   const stats = [
     {
-      label: "My Cards",
+      label: "Minhas Cartas",
       value: userCards?.length || 0,
       icon: CreditCard,
       color: "from-primary/10 to-primary/20",
       iconColor: "text-primary",
     },
     {
-      label: "Active Trades",
+      label: "Trocas Ativas",
       value: activeTrades.length,
       icon: ArrowUpDown,
       color: "from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20",
       iconColor: "text-green-600",
     },
     {
-      label: "Completed",
+      label: "Concluídas",
       value: completedTrades.length,
       icon: CheckCircle,
       color: "from-yellow-50 to-yellow-100 dark:from-yellow-900/20 dark:to-yellow-800/20",
       iconColor: "text-yellow-600",
     },
     {
-      label: "Rating",
+      label: "Avaliação",
       value: "4.9",
       icon: Star,
       color: "from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20",
@@ -118,10 +118,10 @@ export default function Dashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-                  Welcome back, <span className="text-primary">{user?.name?.split(' ')[0]}</span>!
+                  Bem-vindo de volta, <span className="text-primary">{user?.name?.split(' ')[0]}</span>!
                 </h1>
                 <p className="text-xl text-slate-600 dark:text-slate-400">
-                  Manage your cards and trades
+                  Gerencie suas cartas e trocas
                 </p>
               </div>
               <Button
@@ -130,7 +130,7 @@ export default function Dashboard() {
                 className="flex items-center space-x-2"
               >
                 <Plus size={20} />
-                <span>Create New Trade</span>
+                <span>Criar Nova Troca</span>
               </Button>
             </div>
           </motion.div>
@@ -171,18 +171,18 @@ export default function Dashboard() {
           >
             <Tabs defaultValue="cards" className="w-full">
               <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="cards">My Cards</TabsTrigger>
-                <TabsTrigger value="trades">My Trades</TabsTrigger>
-                <TabsTrigger value="add-cards">Add Cards</TabsTrigger>
+                <TabsTrigger value="cards">Minhas Cartas</TabsTrigger>
+                <TabsTrigger value="trades">Minhas Trocas</TabsTrigger>
+                <TabsTrigger value="add-cards">Adicionar Cartas</TabsTrigger>
               </TabsList>
 
               <TabsContent value="cards" className="mt-8">
                 <div className="mb-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                    Your Collection ({userCards?.length || 0} cards)
+                    Sua Coleção ({userCards?.length || 0} cartas)
                   </h3>
                   <p className="text-slate-600 dark:text-slate-400">
-                    Manage your trading card collection
+                    Gerencie sua coleção de cartas
                   </p>
                 </div>
 
@@ -203,16 +203,16 @@ export default function Dashboard() {
                   <div className="text-center py-12">
                     <CreditCard className="mx-auto mb-4 text-slate-400" size={64} />
                     <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                      No cards yet
+                      Nenhuma carta ainda
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400 mb-4">
-                      Start building your collection by adding cards
+                      Comece a construir sua coleção adicionando cartas
                     </p>
                     <Button onClick={() => {
                       const addCardsTab = document.querySelector('[value="add-cards"]') as HTMLButtonElement;
                       addCardsTab?.click();
                     }}>
-                      Add Your First Card
+                      Adicionar Sua Primeira Carta
                     </Button>
                   </div>
                 )}
@@ -221,10 +221,10 @@ export default function Dashboard() {
               <TabsContent value="trades" className="mt-8">
                 <div className="mb-6">
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                    Your Trades ({userTrades.length} total)
+                    Suas Trocas ({userTrades.length} total)
                   </h3>
                   <p className="text-slate-600 dark:text-slate-400">
-                    Track and manage your trade requests
+                    Monitore e gerencie suas propostas de troca
                   </p>
                 </div>
 
@@ -233,7 +233,7 @@ export default function Dashboard() {
                     {activeTrades.length > 0 && (
                       <div>
                         <h4 className="text-lg font-medium text-slate-900 dark:text-slate-100 mb-4">
-                          Active Trades ({activeTrades.length})
+                          Trocas Ativas ({activeTrades.length})
                         </h4>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                           {activeTrades.map((trade) => (
@@ -257,7 +257,7 @@ export default function Dashboard() {
                     {completedTrades.length > 0 && (
                       <div>
                         <h4 className="text-lg font-medium text-slate-900 dark:text-slate-100 mb-4">
-                          Completed Trades ({completedTrades.length})
+                          Trocas Concluídas ({completedTrades.length})
                         </h4>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                           {completedTrades.map((trade) => (
@@ -271,14 +271,14 @@ export default function Dashboard() {
                   <div className="text-center py-12">
                     <ArrowUpDown className="mx-auto mb-4 text-slate-400" size={64} />
                     <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                      No trades yet
+                      Nenhuma troca ainda
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400 mb-4">
-                      Create your first trade to start exchanging cards
+                      Crie sua primeira troca para começar a trocar cartas
                     </p>
                     <Button onClick={() => setShowCreateTrade(true)}>
                       <Plus className="mr-2" size={16} />
-                      Create Your First Trade
+                      Criar Sua Primeira Troca
                     </Button>
                   </div>
                 )}

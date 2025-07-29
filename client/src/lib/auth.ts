@@ -15,13 +15,13 @@ export function useAuth() {
       setAuth(response.token, response.user);
       queryClient.invalidateQueries();
       toast({
-        title: "Welcome back!",
-        description: "You have successfully signed in.",
+        title: "Bem-vindo de volta!",
+        description: "Você fez login com sucesso.",
       });
     },
     onError: (error: Error) => {
       toast({
-        title: "Login failed",
+        title: "Falha no login",
         description: error.message,
         variant: "destructive",
       });
@@ -34,13 +34,13 @@ export function useAuth() {
       setAuth(response.token, response.user);
       queryClient.invalidateQueries();
       toast({
-        title: "Account created!",
-        description: "Welcome to CardTrader.",
+        title: "Conta criada!",
+        description: "Bem-vindo ao CardTrader.",
       });
     },
     onError: (error: Error) => {
       toast({
-        title: "Registration failed",
+        title: "Falha no cadastro",
         description: error.message,
         variant: "destructive",
       });

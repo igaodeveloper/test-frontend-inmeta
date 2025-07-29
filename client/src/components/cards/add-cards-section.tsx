@@ -32,11 +32,11 @@ export function AddCardsSection() {
   });
 
   const categories = [
-    { id: "all", label: "All Categories" },
+    { id: "all", label: "Todas as Categorias" },
     { id: "pokemon", label: "Pokemon" },
     { id: "magic", label: "Magic" },
     { id: "yugioh", label: "Yu-Gi-Oh" },
-    { id: "sports", label: "Sports" },
+    { id: "sports", label: "Esportes" },
   ];
 
   // Filter cards based on search and category
@@ -79,14 +79,14 @@ export function AddCardsSection() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/me/cards"] });
       toast({
-        title: "Cards added!",
-        description: `Successfully added ${selectedCards.length} card${selectedCards.length > 1 ? 's' : ''} to your collection.`,
+        title: "Cartas adicionadas!",
+        description: `${selectedCards.length} carta${selectedCards.length > 1 ? 's' : ''} adicionada${selectedCards.length > 1 ? 's' : ''} à sua coleção.`,
       });
       setSelectedCards([]);
     },
     onError: (error: Error) => {
       toast({
-        title: "Failed to add cards",
+        title: "Falha ao adicionar cartas",
         description: error.message,
         variant: "destructive",
       });
@@ -112,10 +112,10 @@ export function AddCardsSection() {
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-            Add Cards to Collection
+            Adicionar Cartas à Coleção
           </h3>
           <p className="text-slate-600 dark:text-slate-400">
-            Browse and add cards from our marketplace to your collection
+            Navegue e adicione cartas do nosso marketplace à sua coleção
           </p>
         </div>
         {selectedCards.length > 0 && (
@@ -127,8 +127,8 @@ export function AddCardsSection() {
             <Plus size={16} />
             <span>
               {addCardsMutation.isPending 
-                ? "Adding..." 
-                : `Add ${selectedCards.length} Card${selectedCards.length > 1 ? 's' : ''}`
+                ? "Adicionando..." 
+                : `Adicionar ${selectedCards.length} Carta${selectedCards.length > 1 ? 's' : ''}`
               }
             </span>
           </Button>
@@ -138,13 +138,13 @@ export function AddCardsSection() {
       {/* Search and Filter Controls */}
       <div className="grid md:grid-cols-3 gap-4">
         <div className="md:col-span-2">
-          <Label htmlFor="search-cards">Search Cards</Label>
+          <Label htmlFor="search-cards">Buscar Cartas</Label>
           <div className="relative mt-2">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={16} />
             <Input
               id="search-cards"
               type="text"
-              placeholder="Search by name, set, or rarity..."
+              placeholder="Buscar por nome, série ou raridade..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10"
@@ -153,10 +153,10 @@ export function AddCardsSection() {
         </div>
         
         <div>
-          <Label htmlFor="category-filter">Category</Label>
+          <Label htmlFor="category-filter">Categoria</Label>
           <Select value={selectedCategory} onValueChange={setSelectedCategory}>
             <SelectTrigger className="mt-2">
-              <SelectValue placeholder="Select category" />
+              <SelectValue placeholder="Selecione uma categoria" />
             </SelectTrigger>
             <SelectContent>
               {categories.map((category) => (
@@ -173,13 +173,13 @@ export function AddCardsSection() {
       <div className="flex items-center justify-between text-sm text-slate-600 dark:text-slate-400">
         <p>
           {loadingAllCards 
-            ? "Loading cards..." 
-            : `${filteredCards.length} cards available to add`
+            ? "Carregando cartas..." 
+            : `${filteredCards.length} cartas disponíveis para adicionar`
           }
         </p>
         {selectedCards.length > 0 && (
           <p className="font-medium text-primary">
-            {selectedCards.length} selected
+            {selectedCards.length} selecionada${selectedCards.length > 1 ? 's' : ''}
           </p>
         )}
       </div>
@@ -223,11 +223,11 @@ export function AddCardsSection() {
         >
           <div className="text-slate-400 dark:text-slate-500 mb-4">
             <Search size={64} className="mx-auto mb-4" />
-            <h4 className="text-lg font-medium mb-2">No cards found</h4>
+            <h4 className="text-lg font-medium mb-2">Nenhuma carta encontrada</h4>
             <p>
               {searchTerm || selectedCategory !== "all" 
-                ? "Try adjusting your search or filter criteria."
-                : "All available cards are already in your collection!"
+                ? "Tente ajustar seus critérios de busca ou filtro."
+                : "Todas as cartas disponíveis já estão na sua coleção!"
               }
             </p>
           </div>

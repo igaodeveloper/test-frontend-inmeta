@@ -9,17 +9,17 @@ export const userSchema = z.object({
 });
 
 export const loginSchema = z.object({
-  email: z.string().email("Please enter a valid email address"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
+  email: z.string().email("Por favor, insira um endereço de email válido"),
+  password: z.string().min(6, "A senha deve ter pelo menos 6 caracteres"),
 });
 
 export const registerSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
+  name: z.string().min(2, "O nome deve ter pelo menos 2 caracteres"),
+  email: z.string().email("Por favor, insira um endereço de email válido"),
+  password: z.string().min(6, "A senha deve ter pelo menos 6 caracteres"),
   confirmPassword: z.string(),
 }).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords don't match",
+  message: "As senhas não coincidem",
   path: ["confirmPassword"],
 });
 
@@ -58,8 +58,8 @@ export const tradeSchema = z.object({
 });
 
 export const createTradeSchema = z.object({
-  offeringCards: z.array(z.string()).min(1, "Please select at least one card to offer"),
-  receivingCards: z.array(z.string()).min(1, "Please select at least one card you want"),
+  offeringCards: z.array(z.string()).min(1, "Por favor, selecione pelo menos uma carta para oferecer"),
+  receivingCards: z.array(z.string()).min(1, "Por favor, selecione pelo menos uma carta que você deseja"),
 });
 
 // Type exports

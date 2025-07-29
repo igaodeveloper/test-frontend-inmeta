@@ -44,20 +44,20 @@ export function RegisterModal({ isOpen, onClose, onSwitchToLogin }: RegisterModa
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-center text-2xl font-bold text-slate-900 dark:text-slate-100">
-            Create Account
+            Criar Conta
           </DialogTitle>
           <DialogDescription className="text-center text-slate-600 dark:text-slate-400">
-            Join our trading community
+            Junte-se à nossa comunidade de trocas
           </DialogDescription>
         </DialogHeader>
 
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div>
-            <Label htmlFor="name">Full Name</Label>
+            <Label htmlFor="name">Nome Completo</Label>
             <Input
               id="name"
               type="text"
-              placeholder="John Doe"
+              placeholder="João da Silva"
               {...form.register("name")}
               className="mt-2"
             />
@@ -73,7 +73,7 @@ export function RegisterModal({ isOpen, onClose, onSwitchToLogin }: RegisterModa
             <Input
               id="email"
               type="email"
-              placeholder="your@email.com"
+              placeholder="seu@email.com"
               {...form.register("email")}
               className="mt-2"
             />
@@ -85,7 +85,7 @@ export function RegisterModal({ isOpen, onClose, onSwitchToLogin }: RegisterModa
           </div>
 
           <div>
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">Senha</Label>
             <div className="relative mt-2">
               <Input
                 id="password"
@@ -108,12 +108,12 @@ export function RegisterModal({ isOpen, onClose, onSwitchToLogin }: RegisterModa
               </p>
             )}
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              Must be at least 6 characters
+              Deve ter pelo menos 6 caracteres
             </p>
           </div>
 
           <div>
-            <Label htmlFor="confirmPassword">Confirm Password</Label>
+            <Label htmlFor="confirmPassword">Confirmar Senha</Label>
             <Input
               id="confirmPassword"
               type="password"
@@ -131,13 +131,13 @@ export function RegisterModal({ isOpen, onClose, onSwitchToLogin }: RegisterModa
           <div className="flex items-start space-x-2">
             <Checkbox id="terms" required className="mt-1" />
             <Label htmlFor="terms" className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              I agree to the{" "}
+              Eu concordo com os{" "}
               <Button variant="link" className="p-0 h-auto text-sm">
-                Terms of Service
+                Termos de Serviço
               </Button>{" "}
-              and{" "}
+              e{" "}
               <Button variant="link" className="p-0 h-auto text-sm">
-                Privacy Policy
+                Política de Privacidade
               </Button>
             </Label>
           </div>
@@ -147,19 +147,19 @@ export function RegisterModal({ isOpen, onClose, onSwitchToLogin }: RegisterModa
             className="w-full" 
             disabled={isRegistering}
           >
-            {isRegistering ? "Creating Account..." : "Create Account"}
+            {isRegistering ? "Criando Conta..." : "Criar Conta"}
           </Button>
         </form>
 
         <div className="text-center">
           <p className="text-slate-600 dark:text-slate-400">
-            Already have an account?{" "}
+            Já tem uma conta?{" "}
             <Button
               variant="link"
               onClick={onSwitchToLogin}
               className="p-0 h-auto font-medium"
             >
-              Sign in
+              Entrar
             </Button>
           </p>
         </div>

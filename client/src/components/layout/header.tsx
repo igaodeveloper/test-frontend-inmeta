@@ -18,8 +18,8 @@ export function Header() {
 
   const navItems = [
     { href: "/marketplace", label: "Marketplace" },
-    { href: "/how-it-works", label: "How it Works" },
-    { href: "/about", label: "About" },
+    { href: "/how-it-works", label: "Como Funciona" },
+    { href: "/about", label: "Sobre" },
   ];
 
   return (
@@ -66,15 +66,15 @@ export function Header() {
                 <DropdownMenuContent align="end">
                   <DropdownMenuItem onClick={() => setTheme("light")}>
                     <Sun className="mr-2" size={16} />
-                    Light
+                    Claro
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => setTheme("dark")}>
                     <Moon className="mr-2" size={16} />
-                    Dark
+                    Escuro
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => setTheme("system")}>
                     <Monitor className="mr-2" size={16} />
-                    System
+                    Sistema
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -97,14 +97,14 @@ export function Header() {
                       <Link href="/dashboard">Dashboard</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link href="/my-cards">My Cards</Link>
+                      <Link href="/my-cards">Minhas Cartas</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link href="/my-trades">My Trades</Link>
+                      <Link href="/my-trades">Minhas Trocas</Link>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={logout} className="text-red-600">
-                      Sign Out
+                      Sair
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -115,13 +115,13 @@ export function Header() {
                     onClick={() => setShowLoginModal(true)}
                     className="font-medium"
                   >
-                    Sign In
+                    Entrar
                   </Button>
                   <Button 
                     onClick={() => setShowRegisterModal(true)}
                     className="font-medium"
                   >
-                    Get Started
+                    Começar
                   </Button>
                 </div>
               )}

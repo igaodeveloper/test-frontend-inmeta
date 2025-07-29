@@ -42,10 +42,10 @@ export function LoginModal({ isOpen, onClose, onSwitchToRegister }: LoginModalPr
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-center text-2xl font-bold text-slate-900 dark:text-slate-100">
-            Welcome Back
+            Bem-vindo de volta
           </DialogTitle>
           <DialogDescription className="text-center text-slate-600 dark:text-slate-400">
-            Sign in to your account
+            Faça login na sua conta
           </DialogDescription>
         </DialogHeader>
 
@@ -55,7 +55,7 @@ export function LoginModal({ isOpen, onClose, onSwitchToRegister }: LoginModalPr
             <Input
               id="email"
               type="email"
-              placeholder="your@email.com"
+              placeholder="seu@email.com"
               {...form.register("email")}
               className="mt-2"
             />
@@ -67,7 +67,7 @@ export function LoginModal({ isOpen, onClose, onSwitchToRegister }: LoginModalPr
           </div>
 
           <div>
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">Senha</Label>
             <div className="relative mt-2">
               <Input
                 id="password"
@@ -95,11 +95,11 @@ export function LoginModal({ isOpen, onClose, onSwitchToRegister }: LoginModalPr
             <div className="flex items-center space-x-2">
               <Checkbox id="remember" />
               <Label htmlFor="remember" className="text-sm text-slate-600 dark:text-slate-400">
-                Remember me
+                Lembrar de mim
               </Label>
             </div>
             <Button variant="link" className="p-0 h-auto text-sm">
-              Forgot password?
+              Esqueceu a senha?
             </Button>
           </div>
 
@@ -108,19 +108,19 @@ export function LoginModal({ isOpen, onClose, onSwitchToRegister }: LoginModalPr
             className="w-full" 
             disabled={isLoggingIn}
           >
-            {isLoggingIn ? "Signing in..." : "Sign In"}
+            {isLoggingIn ? "Entrando..." : "Entrar"}
           </Button>
         </form>
 
         <div className="text-center">
           <p className="text-slate-600 dark:text-slate-400">
-            Don't have an account?{" "}
+            Não tem uma conta?{" "}
             <Button
               variant="link"
               onClick={onSwitchToRegister}
               className="p-0 h-auto font-medium"
             >
-              Sign up
+              Cadastre-se
             </Button>
           </p>
         </div>
