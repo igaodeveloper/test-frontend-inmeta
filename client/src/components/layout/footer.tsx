@@ -14,7 +14,7 @@ export function Footer() {
               <span className="text-xl font-bold text-white">CardTrader</span>
             </div>
             <p className="text-slate-400 mb-4">
-              The premier marketplace for trading card enthusiasts worldwide.
+              O maior marketplace para entusiastas de cartas colecionáveis do Brasil.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-slate-400 hover:text-white transition-colors">
@@ -30,42 +30,42 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-4">Platform</h4>
+            <h4 className="text-white font-semibold mb-4">Plataforma</h4>
             <ul className="space-y-2">
               <li>
                 <Link href="/how-it-works" className="text-slate-400 hover:text-white transition-colors">
-                  How it Works
+                  Como Funciona
                 </Link>
               </li>
               <li>
                 <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                  Pricing
+                  Preços
                 </a>
               </li>
               <li>
                 <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                  Security
+                  Segurança
                 </a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-4">Support</h4>
+            <h4 className="text-white font-semibold mb-4">Suporte</h4>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                  Help Center
+                  Central de Ajuda
                 </a>
               </li>
               <li>
                 <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                  Contact Us
+                  Fale Conosco
                 </a>
               </li>
               <li>
                 <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                  Community
+                  Comunidade
                 </a>
               </li>
             </ul>
@@ -76,17 +76,17 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                  Privacy Policy
+                  Política de Privacidade
                 </a>
               </li>
               <li>
                 <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                  Terms of Service
+                  Termos de Serviço
                 </a>
               </li>
               <li>
                 <a href="#" className="text-slate-400 hover:text-white transition-colors">
-                  Cookie Policy
+                  Política de Cookies
                 </a>
               </li>
             </ul>
