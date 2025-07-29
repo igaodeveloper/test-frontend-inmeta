@@ -1,0 +1,58 @@
+
+## Detalhes do modo escuro
+
+- Detectar preferência do sistema na primeira visita e definir tema padrão
+- Permitir toggle manual com armazenamento local persistente para lembrar escolha do usuário
+- Utilizar as classes `dark` do Tailwind para aplicar tema escuro globalmente
+- Usar transições suaves nas mudanças de tema para melhor experiência
+- Ajustar cores de fundo, textos, bordas, botões, inputs e cards para o modo escuro com alto contraste e conforto visual
+
+---
+
+## Documentação da API para consumo
+
+Base URL: https://cards-marketplace-api-2fjj.onrender.com
+
+Endpoints principais:
+
+- POST `/register` — Criar usuário
+- POST `/login` — Autenticar e obter token JWT
+- GET `/me` — Dados do usuário autenticado
+- GET `/me/cards` — Cartas do usuário
+- POST `/me/cards` — Adicionar cartas ao usuário
+- GET `/cards` — Listar todas as cartas disponíveis
+- GET `/cards/:id` — Detalhes da carta
+- GET `/trades` — Listar solicitações de troca abertas
+- POST `/trades` — Criar solicitação de troca
+- DELETE `/trades/:id` — Deletar solicitação de troca
+
+---
+
+## Extras (diferenciais desejados)
+
+- Tratamento inteligente do tempo de hibernação da API (retry/backoff com React Query)
+- Deploy público funcional (Vercel, Netlify ou similar) com build otimizado
+- Skeleton loading animado e toasts para todas as ações (sucesso/erro)
+- Dark mode toggle persistente e suave
+- Animações Framer Motion customizadas para UX premium (scroll, fade, slide, screw)
+- Histórico de commits detalhado e incremental, com mensagens claras
+
+---
+
+## Critérios de avaliação
+
+- Arquitetura limpa, modular, clara e escalável
+- UX/UI intuitiva, elegante, responsiva e diferenciada
+- Consumo da API 100% funcional e robusto, sem erros, com tratamento adequado
+- Tipagem TypeScript rigorosa e consistente
+- Código limpo, legível, bem documentado e sem smells
+- Escolha técnica assertiva para cada camada e biblioteca usada
+- Commit history com bom padrão, detalhado e frequente
+
+---
+
+## Como rodar o projeto localmente
+
+- Instalar dependências: `npm install`
+- Rodar dev server: `npm run dev`
+- Build produção: `npm run build`
