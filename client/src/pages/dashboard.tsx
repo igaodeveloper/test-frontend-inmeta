@@ -27,12 +27,13 @@ export default function Dashboard() {
   });
 
   // Fetch all trades to filter user's trades
-  const { data: allTrades, isLoading: tradesLoading } = useQuery({
+  const { data: tradesResponse, isLoading: tradesLoading } = useQuery({
     queryKey: ["/trades"],
     queryFn: () => apiClient.getTrades(),
   });
 
-  const userTrades = allTrades?.filter(trade => trade.userId === user?.id) || [];
+  const allTrades = tradesResponse?.list || [];
+  const userTrades = allTrades.filter(trade => trade.userId === user?.id);
   const activeTrades = userTrades.filter(trade => trade.status !== "COMPLETED" && trade.status !== "CANCELLED");
   const completedTrades = userTrades.filter(trade => trade.status === "COMPLETED");
 
