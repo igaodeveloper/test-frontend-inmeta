@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CardItem } from "@/components/cards/card-item";
+import { AddCardsSection } from "@/components/cards/add-cards-section";
 import { TradeCard } from "@/components/trades/trade-card";
 import { CreateTradeModal } from "@/components/trades/create-trade-modal";
 import { DashboardSkeleton } from "@/components/ui/loading-skeleton";
@@ -207,10 +208,11 @@ export default function Dashboard() {
                     <p className="text-slate-600 dark:text-slate-400 mb-4">
                       Start building your collection by adding cards
                     </p>
-                    <Button asChild>
-                      <span onClick={() => document.querySelector('[value="add-cards"]')?.click()}>
-                        Add Your First Card
-                      </span>
+                    <Button onClick={() => {
+                      const addCardsTab = document.querySelector('[value="add-cards"]') as HTMLButtonElement;
+                      addCardsTab?.click();
+                    }}>
+                      Add Your First Card
                     </Button>
                   </div>
                 )}
@@ -283,15 +285,7 @@ export default function Dashboard() {
               </TabsContent>
 
               <TabsContent value="add-cards" className="mt-8">
-                <div className="text-center py-12">
-                  <Plus className="mx-auto mb-4 text-slate-400" size={64} />
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                    Add Cards Feature
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-400">
-                    This feature will allow you to browse and add cards to your collection
-                  </p>
-                </div>
+                <AddCardsSection />
               </TabsContent>
             </Tabs>
           </motion.div>

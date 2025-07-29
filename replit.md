@@ -2,7 +2,7 @@
 
 ## Overview
 
-CardTrader is a professional, modern React + TypeScript single-page application (SPA) for a trading card marketplace. The application consumes an external API to provide user authentication, card management, and trading functionality. It features a clean, modular architecture with premium UI/UX, animations, and comprehensive state management.
+CardTrader is a professional, modern React + TypeScript single-page application (SPA) for a trading card marketplace that fully meets INMETA Front-End Pleno test requirements. The application consumes the external API at https://cards-marketplace-api-2fjj.onrender.com to provide complete user authentication, card collection management, and trading functionality. It features a clean, modular architecture with premium UI/UX, fluid animations, comprehensive state management, and full dark mode support.
 
 ## User Preferences
 
@@ -38,9 +38,12 @@ Preferred communication style: Simple, everyday language.
 
 ### Card Management
 - Display user's card collection with visual card components
-- Add new cards to user collection from available cards
-- Card filtering and search functionality
+- Comprehensive "Add Cards" functionality with search and filtering
+- Browse all available cards from the marketplace API
+- Add multiple cards to collection with visual feedback
+- Card filtering and search functionality by name, set, rarity
 - Category-based card organization (Pokemon, Magic, Yu-Gi-Oh, Sports)
+- Real-time updates and duplicate prevention
 
 ### Trading System
 - Create trade requests with offering/receiving cards
@@ -49,11 +52,14 @@ Preferred communication style: Simple, everyday language.
 - Trade status tracking (active, completed, cancelled)
 
 ### UI/UX Features
-- Dark/light mode toggle with system preference detection
-- Responsive design for mobile and desktop
-- Skeleton loading states for better perceived performance
-- Toast notifications for user feedback
-- Smooth animations and transitions throughout
+- Comprehensive dark/light/system mode toggle with persistent preferences
+- System preference detection on first visit
+- Fully responsive design for mobile, tablet, and desktop
+- Skeleton loading states and animations for optimal perceived performance
+- Toast notifications for all user actions with clear feedback
+- Smooth Framer Motion animations throughout the application
+- Professional color palette and typography
+- Accessibility features (ARIA labels, keyboard navigation, focus states)
 
 ## Data Flow
 

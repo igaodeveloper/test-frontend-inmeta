@@ -14,7 +14,7 @@ import type {
 const API_BASE_URL = "https://cards-marketplace-api-2fjj.onrender.com";
 
 class ApiClient {
-  private getAuthHeaders() {
+  private getAuthHeaders(): Record<string, string> {
     const token = authStore.getState().token;
     return token ? { Authorization: `Bearer ${token}` } : {};
   }

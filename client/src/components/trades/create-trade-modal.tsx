@@ -5,7 +5,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { createTradeSchema, type CreateTradeData, type Card } from "@shared/schema";
 import { apiClient } from "@/lib/api";
 import { useToast } from "@/hooks/use-toast";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -119,9 +119,9 @@ export function CreateTradeModal({ isOpen, onClose }: CreateTradeModalProps) {
           <DialogTitle className="text-center text-2xl font-bold text-slate-900 dark:text-slate-100">
             Create New Trade
           </DialogTitle>
-          <p className="text-center text-slate-600 dark:text-slate-400">
+          <DialogDescription className="text-center text-slate-600 dark:text-slate-400">
             Select cards to offer and cards you want to receive
-          </p>
+          </DialogDescription>
         </DialogHeader>
 
         <form onSubmit={form.handleSubmit(onSubmit)}>

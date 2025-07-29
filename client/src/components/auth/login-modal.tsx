@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, type LoginData } from "@shared/schema";
 import { useAuth } from "@/lib/auth";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -44,9 +44,9 @@ export function LoginModal({ isOpen, onClose, onSwitchToRegister }: LoginModalPr
           <DialogTitle className="text-center text-2xl font-bold text-slate-900 dark:text-slate-100">
             Welcome Back
           </DialogTitle>
-          <p className="text-center text-slate-600 dark:text-slate-400">
+          <DialogDescription className="text-center text-slate-600 dark:text-slate-400">
             Sign in to your account
-          </p>
+          </DialogDescription>
         </DialogHeader>
 
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
