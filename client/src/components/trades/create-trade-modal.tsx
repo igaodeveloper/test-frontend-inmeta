@@ -41,11 +41,13 @@ export function CreateTradeModal({ isOpen, onClose }: CreateTradeModalProps) {
   });
 
   // Fetch all cards for search
-  const { data: allCards, isLoading: loadingAllCards } = useQuery({
+  const { data: cardsResponse, isLoading: loadingAllCards } = useQuery({
     queryKey: ["/cards"],
     queryFn: () => apiClient.getCards(),
     enabled: isOpen,
   });
+
+  const allCards = cardsResponse?.list || [];
 
   // Filter cards based on search
   const filteredCards = useMemo(() => {

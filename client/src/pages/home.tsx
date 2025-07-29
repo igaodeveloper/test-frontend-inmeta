@@ -17,10 +17,12 @@ export default function Home() {
   const [showRegisterModal, setShowRegisterModal] = useState(false);
 
   // Fetch recent trades for preview
-  const { data: trades, isLoading: tradesLoading } = useQuery({
+  const { data: tradesResponse, isLoading: tradesLoading } = useQuery({
     queryKey: ["/trades"],
     queryFn: () => apiClient.getTrades(),
   });
+
+  const trades = tradesResponse?.list || [];
 
   const stats = [
     { label: "Jogadores Ativos", value: "10K+", icon: Users },

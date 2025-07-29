@@ -20,10 +20,12 @@ export function AddCardsSection() {
   const queryClient = useQueryClient();
 
   // Fetch all available cards
-  const { data: allCards, isLoading: loadingAllCards } = useQuery({
+  const { data: cardsResponse, isLoading: loadingAllCards } = useQuery({
     queryKey: ["/cards"],
     queryFn: () => apiClient.getCards(),
   });
+
+  const allCards = cardsResponse?.list || [];
 
   // Fetch user's current cards to avoid duplicates
   const { data: userCards } = useQuery({
@@ -70,12 +72,7 @@ export function AddCardsSection() {
 
   // Add cards mutation
   const addCardsMutation = useMutation({
-    mutationFn: async (cardIds: string[]) => {
-      // Add cards one by one (API expects single card per request)
-      for (const cardId of cardIds) {
-        await apiClient.addCardToUser({ cardId });
-      }
-    },
+    mutationFn: (cardIds: string[]) => apiClient.addCardToUser(cardIds),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/me/cards"] });
       toast({

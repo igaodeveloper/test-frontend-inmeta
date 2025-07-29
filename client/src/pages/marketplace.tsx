@@ -12,10 +12,12 @@ export default function Marketplace() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const { data: trades, isLoading } = useQuery({
+  const { data: tradesResponse, isLoading } = useQuery({
     queryKey: ["/trades"],
     queryFn: () => apiClient.getTrades(),
   });
+
+  const trades = tradesResponse?.list || [];
 
   const categories = [
     { id: "all", label: "Todas as Categorias" },

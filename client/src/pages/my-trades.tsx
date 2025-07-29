@@ -18,13 +18,14 @@ export default function MyTrades() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
-  const { data: allTrades, isLoading } = useQuery({
+  const { data: tradesResponse, isLoading } = useQuery({
     queryKey: ["/trades"],
     queryFn: () => apiClient.getTrades(),
   });
 
   // Filter trades for current user
-  const userTrades = allTrades?.filter(trade => trade.userId === user?.id) || [];
+  const allTrades = tradesResponse?.list || [];
+  const userTrades = allTrades.filter(trade => trade.userId === user?.id);
   const activeTrades = userTrades.filter(trade => trade.status === "ACTIVE");
   const completedTrades = userTrades.filter(trade => trade.status === "COMPLETED");
   const cancelledTrades = userTrades.filter(trade => trade.status === "CANCELLED");

@@ -68,8 +68,8 @@ class ApiClient {
   }
 
   // Cards endpoints
-  async getCards(): Promise<Card[]> {
-    return this.request<Card[]>("/cards");
+  async getCards(): Promise<{ list: Card[]; rpp: number; page: number; more: boolean }> {
+    return this.request<{ list: Card[]; rpp: number; page: number; more: boolean }>("/cards?rpp=100&page=1");
   }
 
   async getCard(id: string): Promise<Card> {
@@ -80,16 +80,16 @@ class ApiClient {
     return this.request<Card[]>("/me/cards");
   }
 
-  async addCardToUser(data: AddCardData): Promise<void> {
+  async addCardToUser(cardIds: string[]): Promise<void> {
     return this.request<void>("/me/cards", {
       method: "POST",
-      body: JSON.stringify(data),
+      body: JSON.stringify({ cardIds }),
     });
   }
 
   // Trades endpoints
-  async getTrades(): Promise<Trade[]> {
-    return this.request<Trade[]>("/trades");
+  async getTrades(): Promise<{ list: Trade[]; rpp: number; page: number; more: boolean }> {
+    return this.request<{ list: Trade[]; rpp: number; page: number; more: boolean }>("/trades?rpp=100&page=1");
   }
 
   async createTrade(data: CreateTradeData): Promise<Trade> {
