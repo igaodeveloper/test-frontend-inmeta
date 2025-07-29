@@ -10,6 +10,7 @@ import { CardItem } from "@/components/cards/card-item";
 import { AddCardsSection } from "@/components/cards/add-cards-section";
 import { TradeCard } from "@/components/trades/trade-card";
 import { CreateTradeModal } from "@/components/trades/create-trade-modal";
+import { QuickAddModal } from "@/components/cards/quick-add-modal";
 import { DashboardSkeleton } from "@/components/ui/loading-skeleton";
 import { ProtectedRoute } from "@/components/auth/protected-route";
 import { Plus, CreditCard, ArrowUpDown, CheckCircle, Star, Trash2 } from "lucide-react";
@@ -19,6 +20,7 @@ export default function Dashboard() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const [showCreateTrade, setShowCreateTrade] = useState(false);
+  const [showQuickAdd, setShowQuickAdd] = useState(false);
 
   // Fetch user's cards
   const { data: userCards, isLoading: cardsLoading } = useQuery({
@@ -196,7 +198,13 @@ export default function Dashboard() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: index * 0.05 }}
                       >
-                        <CardItem card={card} />
+                        <CardItem 
+                          card={card} 
+                          onClick={() => {
+                            // Open card details modal
+                            console.log("Card clicked:", card.name);
+                          }}
+                        />
                       </motion.div>
                     ))}
                   </div>
@@ -209,11 +217,13 @@ export default function Dashboard() {
                     <p className="text-slate-600 dark:text-slate-400 mb-4">
                       Comece a construir sua coleção adicionando cartas
                     </p>
-                    <Button onClick={() => {
-                      const addCardsTab = document.querySelector('[value="add-cards"]') as HTMLButtonElement;
-                      addCardsTab?.click();
-                    }}>
-                      Adicionar Sua Primeira Carta
+                    <Button 
+                      onClick={() => setShowQuickAdd(true)}
+                      size="lg"
+                      className="inline-flex items-center space-x-2"
+                    >
+                      <Plus size={20} />
+                      <span>Adicionar Sua Primeira Carta</span>
                     </Button>
                   </div>
                 )}
@@ -295,6 +305,11 @@ export default function Dashboard() {
         <CreateTradeModal
           isOpen={showCreateTrade}
           onClose={() => setShowCreateTrade(false)}
+        />
+
+        <QuickAddModal
+          isOpen={showQuickAdd}
+          onClose={() => setShowQuickAdd(false)}
         />
       </div>
     </ProtectedRoute>

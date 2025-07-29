@@ -7,6 +7,7 @@ interface CardItemProps {
   onSelect?: () => void;
   className?: string;
   showCondition?: boolean;
+  onClick?: () => void;
 }
 
 const getCardGradient = (category?: string) => {
@@ -46,7 +47,8 @@ export function CardItem({
   selected = false, 
   onSelect, 
   className, 
-  showCondition = true 
+  showCondition = true,
+  onClick 
 }: CardItemProps) {
   return (
     <div
@@ -58,7 +60,7 @@ export function CardItem({
         onSelect && "cursor-pointer",
         className
       )}
-      onClick={onSelect}
+      onClick={onClick || onSelect}
     >
       <div className="p-3">
         <div className={cn(

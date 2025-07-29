@@ -96,7 +96,14 @@ export default function Marketplace() {
             <p className="text-slate-600 dark:text-slate-400">
               {filteredTrades ? `${filteredTrades.length} trocas encontradas` : "Carregando..."}
             </p>
-            <Button variant="outline" size="sm">
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={() => {
+                // Toggle advanced filters - future implementation
+                console.log("Advanced filters toggled");
+              }}
+            >
               <Filter className="mr-2" size={16} />
               Mais Filtros
             </Button>

@@ -7,7 +7,9 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { LoginModal } from "@/components/auth/login-modal";
 import { RegisterModal } from "@/components/auth/register-modal";
-import { Moon, Sun, Monitor, Menu, ChevronDown, CreditCard } from "lucide-react";
+import { HelpModal } from "@/components/help/help-modal";
+import { MobileMenu } from "@/components/navigation/mobile-menu";
+import { Moon, Sun, Monitor, ChevronDown, CreditCard, HelpCircle } from "lucide-react";
 
 export function Header() {
   const [location] = useLocation();
@@ -15,6 +17,7 @@ export function Header() {
   const { theme, setTheme } = useTheme();
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
+  const [showHelpModal, setShowHelpModal] = useState(false);
 
   const navItems = [
     { href: "/marketplace", label: "Marketplace" },
@@ -56,6 +59,17 @@ export function Header() {
 
             {/* Auth Section */}
             <div className="flex items-center space-x-4">
+              {/* Help Button */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setShowHelpModal(true)}
+                className="flex items-center space-x-1"
+              >
+                <HelpCircle size={20} />
+                <span className="hidden md:inline">Ajuda</span>
+              </Button>
+
               {/* Theme Toggle */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -126,10 +140,12 @@ export function Header() {
                 </div>
               )}
 
-              {/* Mobile Menu Button */}
-              <Button variant="ghost" size="sm" className="md:hidden">
-                <Menu size={20} />
-              </Button>
+              {/* Mobile Menu */}
+              <MobileMenu
+                onLoginClick={() => setShowLoginModal(true)}
+                onRegisterClick={() => setShowRegisterModal(true)}
+                onHelpClick={() => setShowHelpModal(true)}
+              />
             </div>
           </div>
         </div>
@@ -151,6 +167,11 @@ export function Header() {
           setShowRegisterModal(false);
           setShowLoginModal(true);
         }}
+      />
+
+      <HelpModal
+        isOpen={showHelpModal}
+        onClose={() => setShowHelpModal(false)}
       />
     </>
   );
