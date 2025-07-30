@@ -7,10 +7,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                <CreditCard className="text-white" size={16} />
-              </div>
+            <div className="mb-4">
               <span className="text-xl font-bold text-white">Inmeta Cards</span>
             </div>
             <p className="text-slate-400 mb-4">
