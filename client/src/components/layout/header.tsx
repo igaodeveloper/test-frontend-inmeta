@@ -41,7 +41,7 @@ export function Header() {
                 className="rounded-full"
               />
               <span className="text-2xl font-bold text-slate-900 dark:text-slate-100">
-                CardTrader
+                Inmeta Cards
               </span>
             </Link>
 

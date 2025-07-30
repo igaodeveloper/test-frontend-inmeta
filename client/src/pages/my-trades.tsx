@@ -3,6 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { apiClient } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
+import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { ProtectedRoute } from "@/components/auth/protected-route";
 import { TradeCard } from "@/components/trades/trade-card";
@@ -15,8 +16,13 @@ import { Plus, ArrowUpDown, CheckCircle, Clock, Trash2 } from "lucide-react";
 export default function MyTrades() {
   const [showCreateTrade, setShowCreateTrade] = useState(false);
   const { user } = useAuth();
+  const navigate = useNavigate();
   const { toast } = useToast();
   const queryClient = useQueryClient();
+
+  const handleViewTradeDetails = (tradeId: string) => {
+    navigate(`/trade/${tradeId}`);
+  }
 
   const { data: tradesResponse, isLoading } = useQuery({
     queryKey: ["/trades"],
@@ -164,7 +170,7 @@ export default function MyTrades() {
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {activeTrades.map((trade) => (
                       <div key={trade.id} className="relative">
-                        <TradeCard trade={trade} />
+                        <TradeCard trade={trade} onViewDetails={() => handleViewTradeDetails(trade.id)} />
                         <Button
                           size="sm"
                           variant="destructive"
@@ -205,7 +211,7 @@ export default function MyTrades() {
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {cancelledTrades.map((trade) => (
                       <div key={trade.id} className="relative">
-                        <TradeCard trade={trade} />
+                        <TradeCard trade={trade} onViewDetails={() => handleViewTradeDetails(trade.id)} />
                         <div className="absolute top-2 left-2 bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-200 px-2 py-1 rounded text-xs font-medium">
                           Cancelada
                         </div>
@@ -236,7 +242,7 @@ export default function MyTrades() {
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {completedTrades.map((trade) => (
                       <div key={trade.id} className="relative">
-                        <TradeCard trade={trade} />
+                        <TradeCard trade={trade} onViewDetails={() => handleViewTradeDetails(trade.id)} />
                         <div className="absolute top-2 left-2 bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-200 px-2 py-1 rounded text-xs font-medium">
                           Concluída
                         </div>
@@ -267,7 +273,7 @@ export default function MyTrades() {
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {userTrades.map((trade) => (
                       <div key={trade.id} className="relative">
-                        <TradeCard trade={trade} />
+                        <TradeCard trade={trade} onViewDetails={() => handleViewTradeDetails(trade.id)} />
                         {trade.status === "ACTIVE" && (
                           <Button
                             size="sm"
