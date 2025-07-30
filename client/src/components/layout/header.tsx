@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { Link, useLocation } from "wouter";
 import { useAuth } from "@/lib/auth";
 import { useTheme } from "@/store/theme";
@@ -31,11 +32,15 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                <CreditCard className="text-white" size={16} />
-              </div>
-              <span className="text-xl font-bold text-slate-900 dark:text-slate-100">
+            <Link href="/" className="flex items-center space-x-4">
+              <img
+                src="/assets/logo.png"
+                alt="CardTrader Logo"
+                width={64}
+                height={64}
+                className="rounded-full"
+              />
+              <span className="text-2xl font-bold text-slate-900 dark:text-slate-100">
                 CardTrader
               </span>
             </Link>
