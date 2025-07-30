@@ -1,6 +1,6 @@
 # 🔄 Marketplace de Troca de Cartas (Front-End com React + TypeScript)
 
-![Preview da aplicação](./CardTrader-Professional-Trading-Card-Marketplace.png)
+![Preview da aplicação](https://github.com/igaodeveloper/test-frontend-inmeta/blob/main/CardTrader-Professional-Trading-Card-Marketplace.png?raw=true)
 
 Este projeto é uma aplicação **front-end SPA** construída como parte de um **desafio técnico para desenvolvedor front-end pleno**.  
 A proposta é desenvolver a interface de um **marketplace fictício de cartas colecionáveis**, que permite ao usuário navegar, visualizar cartas disponíveis, gerenciar seu acervo e propor trocas com outros usuários.
@@ -91,14 +91,49 @@ O Vue costuma ser mais direto na hora de construir interfaces, o que pode torná
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/igaodeveloper/test-frontend-inmeta
+git clone https://github.com/igaodeveloper/test-frontend-inmeta.git
 
 # 2. Acesse o projeto
-cd nome-do-repo
+cd test-frontend-inmeta
 
 # 3. Instale as dependências
 pnpm install
 
 # 4. Execute o projeto
 npm run frontend-dev
+O projeto estará disponível em:
+👉 http://localhost:5174/
+🧾 Estrutura de pastas
+
+src
+ ┣ components       → Componentes reutilizáveis
+ ┣ pages            → Páginas principais da aplicação
+ ┣ services         → Funções de consumo da API
+ ┣ hooks            → Hooks personalizados
+ ┣ store            → Estado global com Zustand
+ ┣ routes           → Rotas públicas e privadas
+ ┣ types            → Tipagens TypeScript
+ ┣ utils            → Funções auxiliares
+ ┣ App.tsx          → Componente principal
+ ┗ main.tsx         → Bootstrap da aplicação
+
+📡 API Consumida
+
+A API pública utilizada está disponível em:
+🔗 https://cards-marketplace-api-2fjj.onrender.com
+
+A integração com a API foi feita de forma completa:
+
+    Todas as rotas de cartas e trocas foram utilizadas
+
+    Autenticação tratada via Firebase
+
+    Estado de carregamento, erro e sucesso com feedback ao usuário
+
+    Estrutura modular para fácil manutenção
+
+📌 Conclusão
+
+Este projeto foi arquitetado com foco em clareza, performance, escalabilidade e qualidade visual.
+Não apenas cumpre todos os requisitos técnicos do desafio, mas também entrega uma experiência de uso moderna, fluida e visualmente atrativa — sem atalhos.
 ```
