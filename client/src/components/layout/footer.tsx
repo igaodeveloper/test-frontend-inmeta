@@ -11,7 +11,7 @@ export function Footer() {
               <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
                 <CreditCard className="text-white" size={16} />
               </div>
-              <span className="text-xl font-bold text-white">CardTrader</span>
+              <span className="text-xl font-bold text-white">Inmeta Cards</span>
             </div>
             <p className="text-slate-400 mb-4">
               O maior marketplace para entusiastas de cartas colecionáveis do Brasil.
@@ -94,7 +94,7 @@ export function Footer() {
         </div>
         
         <div className="border-t border-slate-800 mt-8 pt-8 text-center">
-          <p className="text-slate-400">&copy; 2024 CardTrader. All rights reserved.</p>
+          <p className="text-slate-400">&copy; 2025 Inmeta Cards. All rights reserved.</p>
         </div>
       </div>
     </footer>
